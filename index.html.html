@@ -1,0 +1,449 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400&display=swap');
+
+  :root {
+    --c-cream: #F7F5F0;
+    --c-charcoal: #1A1A18;
+    --c-warm-gray: #9E9B95;
+    --c-gold: #B89A6A;
+    --c-light-border: rgba(26,26,24,0.1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .site {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: var(--c-charcoal);
+    background: #FAFAF8;
+    width: 100%;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 40px;
+    border-bottom: 0.5px solid var(--c-light-border);
+    background: #FAFAF8;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-charcoal);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  .nav-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .nav-icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+  .nav-icon:hover { opacity: 1; }
+
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 540px;
+    overflow: hidden;
+  }
+  .hero-left {
+    background: var(--c-cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 56px 48px;
+    position: relative;
+  }
+  .hero-season {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--c-gold);
+    margin-bottom: 20px;
+  }
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--c-warm-gray);
+  }
+  .hero-sub {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--c-warm-gray);
+    line-height: 1.8;
+    max-width: 280px;
+    margin-bottom: 40px;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-charcoal);
+    text-decoration: none;
+    border-bottom: 1px solid var(--c-charcoal);
+    padding-bottom: 4px;
+    cursor: pointer;
+    width: fit-content;
+    transition: gap 0.3s;
+  }
+  .btn-primary:hover { gap: 22px; }
+  .hero-right {
+    background: #E8E4DC;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .shoe-placeholder {
+    width: 340px;
+    height: 260px;
+    position: relative;
+  }
+
+  /* COLLECTION STRIP */
+  .collection-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 0.5px solid var(--c-light-border);
+  }
+  .collection-item {
+    padding: 0;
+    border-right: 0.5px solid var(--c-light-border);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+  }
+  .collection-item:last-child { border-right: none; }
+  .collection-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease;
+  }
+  .collection-item:hover .collection-img { transform: scale(1.03); }
+  .c1 { background: #EDE9E2; }
+  .c2 { background: #E2E5E9; }
+  .c3 { background: #E9E2E2; }
+  .collection-info {
+    padding: 20px 24px 24px;
+    border-top: 0.5px solid var(--c-light-border);
+  }
+  .collection-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 4px;
+  }
+  .collection-price {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--c-warm-gray);
+  }
+
+  /* MARQUEE */
+  .marquee-bar {
+    border-top: 0.5px solid var(--c-light-border);
+    border-bottom: 0.5px solid var(--c-light-border);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--c-charcoal);
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 18s linear infinite;
+  }
+  .marquee-inner span {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #FAFAF8;
+    opacity: 0.7;
+    margin: 0 40px;
+  }
+  .marquee-inner span.dot {
+    opacity: 0.3;
+    margin: 0;
+    letter-spacing: 0;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* FEATURE ROW */
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+  }
+  .feature-visual {
+    background: #1A1A18;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-text {
+    padding: 64px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 0.5px solid var(--c-light-border);
+  }
+  .feature-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--c-gold);
+    margin-bottom: 20px;
+  }
+  .feature-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .feature-body {
+    font-size: 12px;
+    line-height: 2;
+    color: var(--c-warm-gray);
+    max-width: 340px;
+    margin-bottom: 36px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px;
+    border-top: 0.5px solid var(--c-light-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+  .footer-copy {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--c-warm-gray);
+  }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--c-warm-gray);
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  /* SVG shoe illustrations */
+  .shoe-svg { filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)); }
+</style>
+
+<div class="site">
+  <h2 class="sr-only">Luxury shoe brand website concept — clean minimal layout with hero, collection grid, feature section, and footer.</h2>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">Maison Vael</span>
+    <ul class="nav-links">
+      <li><a href="#">Collection</a></li>
+      <li><a href="#">Atelier</a></li>
+      <li><a href="#">Heritage</a></li>
+      <li><a href="#">Stores</a></li>
+    </ul>
+    <div class="nav-actions">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-season">Collection SS 2026</p>
+      <h1 class="hero-headline">Crafted<br>for the<br><em>rare few.</em></h1>
+      <p class="hero-sub">Where Florentine leather meets architectural restraint. Each pair a singular object, made entirely by hand.</p>
+      <span class="btn-primary" onclick="sendPrompt('Tell me more about what should go in the hero section of my shoe website')">
+        Explore collection
+        <svg width="20" height="8" viewBox="0 0 20 8" fill="none"><path d="M0 4h18M14 1l4 3-4 3" stroke="currentColor" stroke-width="1"/></svg>
+      </span>
+    </div>
+    <div class="hero-right">
+      <!-- Illustrated luxury heel -->
+      <svg class="shoe-svg" width="320" height="240" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Shadow -->
+        <ellipse cx="160" cy="220" rx="110" ry="12" fill="rgba(0,0,0,0.15)"/>
+        <!-- Sole -->
+        <path d="M60 175 Q80 185 160 185 Q240 185 265 172 L260 182 Q240 195 160 195 Q80 195 55 182 Z" fill="#2A2520"/>
+        <!-- Heel -->
+        <rect x="230" y="130" width="22" height="55" rx="3" fill="#1F1B17"/>
+        <rect x="232" y="132" width="18" height="51" rx="2" fill="#2A2520"/>
+        <!-- Upper shoe body -->
+        <path d="M55 178 Q65 140 110 125 Q150 112 200 118 Q230 122 240 130 L238 175 Q200 182 160 183 Q100 183 60 178 Z" fill="#C8B89A"/>
+        <!-- Toe box highlight -->
+        <path d="M55 178 Q65 155 100 140 Q130 130 155 130 L155 140 Q130 142 105 152 Q75 163 62 178 Z" fill="#D4C4A8"/>
+        <!-- Vamp detail line -->
+        <path d="M155 130 Q175 125 200 128" stroke="#A89070" stroke-width="0.8" fill="none"/>
+        <!-- Heel counter -->
+        <path d="M215 125 Q235 128 240 138 L238 168 Q228 172 215 170 Z" fill="#B8A88A"/>
+        <!-- Gold trim -->
+        <path d="M60 173 Q140 180 240 168" stroke="#B89A6A" stroke-width="1.5" fill="none" opacity="0.7"/>
+        <!-- Insole edge -->
+        <path d="M65 175 Q160 181 238 170" stroke="#A08060" stroke-width="0.5" fill="none"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- COLLECTION STRIP -->
+  <section class="collection-strip">
+    <div class="collection-item">
+      <div class="collection-img c1">
+        <svg width="140" height="100" viewBox="0 0 140 100" fill="none">
+          <ellipse cx="70" cy="90" rx="55" ry="6" fill="rgba(0,0,0,0.08)"/>
+          <path d="M20 75 Q28 55 50 46 Q70 38 88 42 Q104 46 108 55 L106 72 Q88 78 70 79 Q42 79 22 75 Z" fill="#8B7355"/>
+          <path d="M20 75 Q28 60 48 52 Q65 46 78 47 L78 54 Q65 55 50 62 Q33 70 24 76 Z" fill="#9B8368"/>
+          <rect x="96" y="45" width="14" height="30" rx="2" fill="#6B5340"/>
+        </svg>
+      </div>
+      <div class="collection-info">
+        <p class="collection-name">Le Sablier</p>
+        <p class="collection-price">EUR 1,280</p>
+      </div>
+    </div>
+    <div class="collection-item">
+      <div class="collection-img c2">
+        <svg width="140" height="100" viewBox="0 0 140 100" fill="none">
+          <ellipse cx="70" cy="88" rx="55" ry="6" fill="rgba(0,0,0,0.08)"/>
+          <path d="M22 76 Q30 58 55 50 Q80 43 100 50 Q115 56 118 68 L22 76 Z" fill="#2A2A2A"/>
+          <path d="M22 76 Q30 62 52 55 Q70 50 84 51 L84 58 Q70 58 55 65 Q36 73 26 78 Z" fill="#383838"/>
+          <path d="M22 76 Q100 80 118 68 L116 73 Q95 82 22 79 Z" fill="#1A1A1A"/>
+          <path d="M22 73 Q100 77 118 66" stroke="#B89A6A" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <div class="collection-info">
+        <p class="collection-name">L'Ombre</p>
+        <p class="collection-price">EUR 1,450</p>
+      </div>
+    </div>
+    <div class="collection-item">
+      <div class="collection-img c3">
+        <svg width="140" height="100" viewBox="0 0 140 100" fill="none">
+          <ellipse cx="70" cy="90" rx="55" ry="6" fill="rgba(0,0,0,0.08)"/>
+          <path d="M18 78 Q26 55 54 44 Q80 35 100 42 Q116 48 120 62 L116 75 Q95 82 65 83 Q35 83 20 78 Z" fill="#C4B0A0"/>
+          <path d="M18 78 Q26 60 50 50 Q72 43 88 46 L88 54 Q72 56 53 64 Q32 73 22 80 Z" fill="#D0BEB0"/>
+          <path d="M20 75 Q90 81 117 72" stroke="#8B7060" stroke-width="0.7" fill="none"/>
+          <circle cx="68" cy="57" r="3" fill="#A89080" opacity="0.6"/>
+          <circle cx="80" cy="54" r="3" fill="#A89080" opacity="0.6"/>
+          <circle cx="56" cy="61" r="3" fill="#A89080" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="collection-info">
+        <p class="collection-name">La Rivière</p>
+        <p class="collection-price">EUR 980</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-inner">
+      <span>Handcrafted in Florence</span><span class="dot"> · </span>
+      <span>Full-grain calfskin</span><span class="dot"> · </span>
+      <span>Limited editions</span><span class="dot"> · </span>
+      <span>Complimentary monogramming</span><span class="dot"> · </span>
+      <span>Free worldwide delivery</span><span class="dot"> · </span>
+      <span>Handcrafted in Florence</span><span class="dot"> · </span>
+      <span>Full-grain calfskin</span><span class="dot"> · </span>
+      <span>Limited editions</span><span class="dot"> · </span>
+      <span>Complimentary monogramming</span><span class="dot"> · </span>
+      <span>Free worldwide delivery</span><span class="dot"> · </span>
+    </div>
+  </div>
+
+  <!-- FEATURE ROW -->
+  <section class="feature-row">
+    <div class="feature-visual">
+      <svg width="260" height="320" viewBox="0 0 260 320" fill="none">
+        <rect x="30" y="30" width="200" height="260" rx="2" fill="#242420" opacity="0.5"/>
+        <rect x="40" y="40" width="180" height="240" rx="1" fill="#1E1C18"/>
+        <text x="130" y="160" font-family="Cormorant Garamond, serif" font-size="13" fill="#B89A6A" text-anchor="middle" letter-spacing="4" opacity="0.8">MAISON VAEL</text>
+        <text x="130" y="180" font-family="Cormorant Garamond, serif" font-size="9" fill="#FAFAF8" text-anchor="middle" letter-spacing="6" opacity="0.4">ATELIER</text>
+        <line x1="90" y1="195" x2="170" y2="195" stroke="#B89A6A" stroke-width="0.5" opacity="0.4"/>
+        <text x="130" y="215" font-family="Cormorant Garamond, serif" font-size="8" fill="#FAFAF8" text-anchor="middle" letter-spacing="3" opacity="0.3">FIRENZE · MMXXVI</text>
+      </svg>
+    </div>
+    <div class="feature-text">
+      <p class="feature-eyebrow">The atelier</p>
+      <h2 class="feature-headline">Every pair<br>tells a<br>century.</h2>
+      <p class="feature-body">Our artisans in the Santa Croce district of Florence have perfected the same techniques passed down since 1924. No shortcuts. No compromises. Only leather that breathes and silhouettes that endure.</p>
+      <span class="btn-primary" onclick="sendPrompt('What content should I put on my brand story and atelier page?')">
+        Our story
+        <svg width="20" height="8" viewBox="0 0 20 8" fill="none"><path d="M0 4h18M14 1l4 3-4 3" stroke="currentColor" stroke-width="1"/></svg>
+      </span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Maison Vael</span>
+    <ul class="footer-links">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Returns</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Maison Vael</span>
+  </footer>
+</div>
